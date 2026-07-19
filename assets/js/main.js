@@ -38,6 +38,8 @@
     youtube: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 9.5v5l4.5-2.5-4.5-2.5Z" fill="currentColor"/></svg>`,
     tiktok: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 3v10.5a3 3 0 1 1-2.4-2.94" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M14 3c.4 2.2 2 3.9 4.2 4.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
     facebook: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 21v-7h2.3l.4-3H14.5V9c0-.9.2-1.5 1.6-1.5H17V5h-2c-2.5 0-3.5 1.4-3.5 3.6V11H9.5v3H11.5v7h3Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>`,
+    sun: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+    moon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
   };
 
   // One glyph per lesson/course "image" key — simple, distinguishable line icons.
@@ -64,6 +66,30 @@
 
   const COURSE_COLOR = { gold: "var(--color-accent-gold)", blue: "var(--color-accent-blue)", red: "var(--color-red)" };
   const COURSE_CHIP = { gold: "chip--gold", blue: "", red: "chip--red" };
+
+  /* =========================================================================
+     THEME TOGGLE
+     ========================================================================= */
+  function getPreferredTheme() {
+    const stored = localStorage.getItem("theme");
+    if (stored) return stored;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+    const toggle = document.querySelector(".theme-toggle");
+    if (toggle) {
+      toggle.innerHTML = theme === "dark" ? ICONS.sun : ICONS.moon;
+      toggle.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+    }
+  }
+
+  function toggleTheme() {
+    const current = document.documentElement.getAttribute("data-theme") || "light";
+    applyTheme(current === "dark" ? "light" : "dark");
+  }
 
   /* =========================================================================
      SIGNATURE SIGNATURE ELEMENT — the wing / ridge divider
@@ -107,6 +133,7 @@
         <ul class="navbar__links">${links}</ul>
         <div class="navbar__actions">
           <a href="contact.html" class="btn btn-primary btn-sm">Book a Lesson</a>
+          <button class="theme-toggle" aria-label="Toggle theme"></button>
           <button class="navbar__toggle" aria-label="Toggle menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -115,11 +142,7 @@
   }
 
   function brandMarkSVG(cls) {
-    return `<svg class="${cls}" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect width="40" height="40" rx="10" fill="var(--color-red)"/>
-      <path d="M20 9 27 30H13L20 9Z" stroke="var(--color-warm-white)" stroke-width="2" stroke-linejoin="round"/>
-      <path d="M16.5 24h7" stroke="var(--color-accent-gold)" stroke-width="2" stroke-linecap="round"/>
-    </svg>`;
+    return `<img class="${cls}" src="assets/images/logo.png" alt="Albanian with Erisa" width="40" height="40" />`;
   }
 
   function renderFooter() {
@@ -450,9 +473,19 @@
      BOOT
      ========================================================================= */
   document.addEventListener("DOMContentLoaded", () => {
+    // Theme: apply before render to avoid flash
+    applyTheme(getPreferredTheme());
+
     renderNavbar();
     renderFooter();
     injectWingDividers();
+
+    // Re-apply theme icon now that the toggle button exists in the DOM
+    applyTheme(getPreferredTheme());
+
+    // Theme toggle event
+    const toggleBtn = document.querySelector(".theme-toggle");
+    if (toggleBtn) toggleBtn.addEventListener("click", toggleTheme);
 
     // Home
     renderHeroStats();
