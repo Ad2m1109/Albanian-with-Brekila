@@ -1,0 +1,87 @@
+/* ==========================================================================
+   ANIMATIONS
+   Subtle, purposeful motion only. Respects prefers-reduced-motion.
+   ========================================================================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUpSmall {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes drawLine {
+  from { stroke-dashoffset: var(--dash-length, 1000); }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ---- Scroll-reveal system --------------------------------------------- */
+/* Elements start hidden; JS (animations.js) adds .is-visible via
+   IntersectionObserver, at which point the transition below plays. */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+  will-change: opacity, transform;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal="fade"] {
+  transform: none;
+}
+
+/* Stagger children of a revealed group */
+[data-reveal-group] > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+[data-reveal-group].is-visible > * { opacity: 1; transform: translateY(0); }
+[data-reveal-group].is-visible > *:nth-child(1) { transition-delay: 0ms; }
+[data-reveal-group].is-visible > *:nth-child(2) { transition-delay: 90ms; }
+[data-reveal-group].is-visible > *:nth-child(3) { transition-delay: 180ms; }
+[data-reveal-group].is-visible > *:nth-child(4) { transition-delay: 270ms; }
+[data-reveal-group].is-visible > *:nth-child(5) { transition-delay: 360ms; }
+[data-reveal-group].is-visible > *:nth-child(6) { transition-delay: 450ms; }
+
+.wing-divider path {
+  stroke-dasharray: var(--dash-length, 1000);
+  stroke-dashoffset: var(--dash-length, 1000);
+}
+.wing-divider.is-visible path {
+  animation: drawLine 1400ms var(--ease-out) forwards;
+}
+
+.animate-float {
+  animation: gentleFloat 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal], [data-reveal-group] > *, .wing-divider path, .animate-float {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Albanian with Erisa</title>
+  <meta name="description" content="Book a free trial lesson or ask a question — get in touch with Erisa directly." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Contact — Albanian with Erisa" />
+  <meta property="og:description" content="Book a free trial lesson or ask a question — get in touch with Erisa directly." />
+  <meta property="og:site_name" content="Albanian with Erisa" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact — Albanian with Erisa" />
+  <meta name="twitter:description" content="Book a free trial lesson or ask a question." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="navbar" data-component="navbar" data-current="contact.html"></header>
+
+  <main id="main-content">
+
+    <section class="page-hero">
+      <div class="page-hero__inner" data-reveal>
+        <span class="eyebrow">Contact</span>
+        <h1 class="page-hero__title">Let's start with a conversation</h1>
+        <p class="page-hero__lede">Whether you're ready to book or just have a question about which format fits you, Erisa replies personally to every message.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section__inner contact-layout">
+
+        <div data-reveal>
+          <span class="eyebrow">Get in touch</span>
+          <h2 class="section-title" style="font-size: var(--fs-h3); margin-top: 0.75rem;">Contact information</h2>
+          <p class="section-lede">Prefer messaging directly? Reach Erisa through any of the channels below.</p>
+          <div class="contact-info__list" data-component="contact-info"></div>
+        </div>
+
+        <form class="form" data-component="contact-form" data-reveal aria-label="Contact form">
+          <div class="form__success" data-form-success>
+            <span>&#10003;</span>
+            <span>Message sent — Erisa typically replies within one business day.</span>
+          </div>
+
+          <div class="form__row">
+            <div class="form__field">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" required autocomplete="name" />
+            </div>
+            <div class="form__field">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" required autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__field">
+              <label for="interest">I'm interested in</label>
+              <select id="interest" name="interest">
+                <option value="">Not sure yet</option>
+                <option value="Private Lessons">Private Lessons</option>
+                <option value="Kids Lessons">Kids Lessons</option>
+                <option value="Conversation Practice">Conversation Practice</option>
+                <option value="Grammar Deep Dive">Grammar Deep Dive</option>
+                <option value="Couples Lessons">Couples Lessons</option>
+                <option value="Small Group Lessons">Small Group Lessons</option>
+                <option value="A1 Course">A1 Course</option>
+                <option value="A2 Course">A2 Course</option>
+                <option value="B1 Course">B1 Course</option>
+                <option value="B2 Course">B2 Course</option>
+                <option value="Travel Albanian">Travel Albanian</option>
+                <option value="Kids Albanian">Kids Albanian</option>
+              </select>
+            </div>
+            <div class="form__field">
+              <label for="timezone">Your time zone</label>
+              <input type="text" id="timezone" name="timezone" placeholder="e.g. GMT+1" />
+            </div>
+          </div>
+
+          <div class="form__field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required placeholder="Tell Erisa a bit about your goals — heritage learning, an upcoming trip, or starting from scratch."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+          <p class="form__note">By submitting, you agree to be contacted about your Albanian lessons. No spam, ever.</p>
+        </form>
+
+      </div>
+    </section>
+
+    <section class="section section--soft" id="faq">
+      <div class="section__inner">
+        <div class="section-head section-head--center">
+          <span class="eyebrow" style="justify-content:center">Before you write in</span>
+          <h2 class="section-title">Frequently asked questions</h2>
+        </div>
+        <div style="max-width:760px;margin:0 auto;" data-component="faq-list"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section__inner">
+        <div class="section-head section-head--center">
+          <span class="eyebrow" style="justify-content:center">Based in Tirana</span>
+          <h2 class="section-title">Teaching online, worldwide</h2>
+        </div>
+        <div class="map-placeholder">
+          <span>Map view — Tirana, Albania</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" data-component="footer"></footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
