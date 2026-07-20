@@ -47,22 +47,57 @@
     window.addEventListener("scroll", update, { passive: true });
   }
 
-  /* ---- Mobile menu toggle ------------------------------------------------ */
+  /* ---- Mobile drawer (<=960px) ------------------------------------------- */
   function initMobileMenu() {
     const toggle = document.querySelector(".navbar__toggle");
     const links = document.querySelector(".navbar__links");
+    const overlay = document.querySelector(".navbar__overlay");
+    const closeBtn = document.querySelector(".navbar__drawer-close");
     if (!toggle || !links) return;
 
+    function openDrawer() {
+      links.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+      if (overlay) overlay.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeDrawer() {
+      links.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      if (overlay) overlay.classList.remove("is-open");
+      document.body.style.overflow = "";
+    }
+
     toggle.addEventListener("click", () => {
-      const isOpen = links.classList.toggle("is-open");
-      toggle.setAttribute("aria-expanded", String(isOpen));
+      const isOpen = links.classList.contains("is-open");
+      if (isOpen) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
     });
 
+    // Close on X button
+    if (closeBtn) {
+      closeBtn.addEventListener("click", closeDrawer);
+    }
+
+    // Close on overlay click
+    if (overlay) {
+      overlay.addEventListener("click", closeDrawer);
+    }
+
+    // Close on ESC key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && links.classList.contains("is-open")) {
+        closeDrawer();
+      }
+    });
+
+    // Close on nav link click
     links.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        links.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
-      });
+      link.addEventListener("click", closeDrawer);
     });
   }
 
@@ -101,11 +136,10 @@
   window.AppAnimations = {
     initScrollReveal,
     initFaqAccordion,
+    initMobileMenu,
   };
 
   document.addEventListener("DOMContentLoaded", () => {
     initNavbarScroll();
-    initMobileMenu();
-    initScrollReveal();
   });
 })();

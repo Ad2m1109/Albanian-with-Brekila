@@ -79,11 +79,11 @@
   function applyTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
-    const toggle = document.querySelector(".theme-toggle");
-    if (toggle) {
+    const toggles = document.querySelectorAll(".theme-toggle");
+    toggles.forEach((toggle) => {
       toggle.innerHTML = theme === "dark" ? ICONS.sun : ICONS.moon;
       toggle.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
-    }
+    });
   }
 
   function toggleTheme() {
@@ -124,21 +124,31 @@
       return `<li><a href="${link.href}" ${isCurrent ? 'aria-current="page"' : ""}>${link.label}</a></li>`;
     }).join("");
 
+    const closeIcon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
     mount.innerHTML = `
       <div class="navbar__inner">
         <a href="index.html" class="navbar__brand" aria-label="${window.SITE.name} — home">
           ${brandMarkSVG("navbar__mark")}
           <span class="navbar__wordmark">Albanian with <span>Erisa</span></span>
         </a>
-        <ul class="navbar__links">${links}</ul>
+        <ul class="navbar__links">
+          <li class="navbar__drawer-close-li"><button class="navbar__drawer-close" aria-label="Close menu">${closeIcon}</button></li>
+          <li class="navbar__drawer-divider-li"><div class="navbar__drawer-divider"></div></li>
+          ${links}
+          <li class="navbar__drawer-divider-li"><div class="navbar__drawer-divider"></div></li>
+          <li class="navbar__drawer-cta"><div class="navbar__drawer-cta-inner"><a href="contact.html" class="btn btn-primary">Book a Lesson</a></div></li>
+          <li class="navbar__drawer-theme"><div class="navbar__drawer-theme-inner"><button class="theme-toggle" aria-label="Toggle theme"></button></div></li>
+        </ul>
         <div class="navbar__actions">
-          <a href="contact.html" class="btn btn-primary btn-sm">Book a Lesson</a>
-          <button class="theme-toggle" aria-label="Toggle theme"></button>
+          <a href="contact.html" class="btn btn-primary btn-sm navbar__desktop-cta">Book a Lesson</a>
+          <button class="theme-toggle navbar__desktop-theme" aria-label="Toggle theme"></button>
           <button class="navbar__toggle" aria-label="Toggle menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
         </div>
-      </div>`;
+      </div>
+      <div class="navbar__overlay"></div>`;
   }
 
   function brandMarkSVG(cls) {
@@ -480,12 +490,16 @@
     renderFooter();
     injectWingDividers();
 
+    // Drawer + mobile menu (must run after navbar is rendered)
+    if (window.AppAnimations) window.AppAnimations.initMobileMenu();
+
     // Re-apply theme icon now that the toggle button exists in the DOM
     applyTheme(getPreferredTheme());
 
-    // Theme toggle event
-    const toggleBtn = document.querySelector(".theme-toggle");
-    if (toggleBtn) toggleBtn.addEventListener("click", toggleTheme);
+    // Theme toggle event (bind to all toggle buttons)
+    document.querySelectorAll(".theme-toggle").forEach((btn) => {
+      btn.addEventListener("click", toggleTheme);
+    });
 
     // Home
     renderHeroStats();
