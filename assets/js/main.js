@@ -44,12 +44,18 @@
 
   // One glyph per lesson/course "image" key — simple, distinguishable line icons.
   const CARD_ICONS = {
-    private: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="9" stroke="currentColor" stroke-width="2"/><path d="M10 50c1.5-8 7-12 14-12s12.5 4 14 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="46" cy="20" r="5" stroke="currentColor" stroke-width="2" opacity="0.5"/><path d="M38 40c1-4.5 4-7 8-7s6.5 2 8 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.5"/></svg>`,
-    kids: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 12 40 28H24L32 12Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M32 28v24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M32 36c6 2 6 6 0 8-6-2-6-6 0-8Z" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="46" r="2" fill="currentColor"/></svg>`,
-    conversation: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18a5 5 0 0 1 5-5h20a5 5 0 0 1 5 5v11a5 5 0 0 1-5 5H20l-7 6v-6h-1a3 3 0 0 1-3-3V18Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M31 27h20a5 5 0 0 1 5 5v9a3 3 0 0 1-3 3h-1v5l-6-5H36a5 5 0 0 1-5-5v-2" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.5"/></svg>`,
-    grammar: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 10h26l6 6v38H16V10Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M42 10v6h6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M22 26h20M22 34h20M22 42h13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
-    couples: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="26" cy="24" r="8" stroke="currentColor" stroke-width="2"/><circle cx="40" cy="24" r="8" stroke="currentColor" stroke-width="2" opacity="0.55"/><path d="M12 50c1.6-8.6 7.3-13 14-13M52 50c-1.6-8.6-7.3-13-14-13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
-    groups: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="20" r="7" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="26" r="5.5" stroke="currentColor" stroke-width="2" opacity="0.6"/><circle cx="48" cy="26" r="5.5" stroke="currentColor" stroke-width="2" opacity="0.6"/><path d="M20 50c1.3-7.5 6-11.5 12-11.5S43.7 42.5 45 50" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8 48c1-5.5 4-8.5 8.5-9M56 48c-1-5.5-4-8.5-8.5-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.6"/></svg>`,
+    trial: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18a5 5 0 0 1 5-5h30a5 5 0 0 1 5 5v12a5 5 0 0 1-5 5h-19l-8 8v-8h-3a5 5 0 0 1-5-5V18Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M44 9v6M41 12h6M54 13v3M52.5 14.5h3" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.7"/></svg>`,
+    private: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="22" r="9" stroke="currentColor" stroke-width="2"/><path d="M16 52c2-10 8-15 16-15s14 5 16 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+    travelers: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 32 54 10l-14 44-10-18L10 32Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M10 32l20 4 14-26" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.5"/></svg>`,
+    restaurant: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 26h28v14a9 9 0 0 1-9 9h-10a9 9 0 0 1-9-9V26Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M45 31h4a5 5 0 0 1 0 10h-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.6"/><path d="M22 18c2-3 2-5 0-8M31 18c2-3 2-5 0-8M40 18c2-3 2-5 0-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.6"/></svg>`,
+    friends: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 17a5 5 0 0 1 5-5h22a5 5 0 0 1 5 5v11a5 5 0 0 1-5 5H24l-8 7v-7h-1a5 5 0 0 1-5-5V17Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M36 28h14a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5h-1v6l-6-6h-7a5 5 0 0 1-5-5v-3" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.6"/></svg>`,
+    nomad: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="12" y="13" width="40" height="27" rx="3.5" stroke="currentColor" stroke-width="2"/><path d="M8 47h48" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M28 20h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.5"/><circle cx="17" cy="18" r="1.6" fill="currentColor" opacity="0.6"/></svg>`,
+    expat: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 30 32 14l20 16" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M18 28v20h28V28" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M28 48V36h8v12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="46" cy="14" r="3" fill="currentColor" opacity="0.5"/></svg>`,
+    hotel: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 12h36v40H14V12Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 30h36" stroke="currentColor" stroke-width="2" opacity="0.5"/><path d="M26 52V38h12v14" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><rect x="20" y="18" width="8" height="8" stroke="currentColor" stroke-width="1.8" opacity="0.6"/><rect x="36" y="18" width="8" height="8" stroke="currentColor" stroke-width="1.8" opacity="0.6"/></svg>`,
+    taxi: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 21 23 13h18l4 8" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><rect x="10" y="21" width="44" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="20" cy="43" r="4.5" stroke="currentColor" stroke-width="2"/><circle cx="44" cy="43" r="4.5" stroke="currentColor" stroke-width="2"/></svg>`,
+    shopping: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 25h20l-2.5 25h-15L22 25Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M24 27c0-7 2.5-11 8-11s8 4 8 11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M28 36v6M36 36v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.6"/></svg>`,
+    couples: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 29c-6-7-13-2-13 4.5 0 5 13 13 13 13s13-8 13-13C34 27 27 22 21 29Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.55"/><path d="M43 29c-6-7-13-2-13 4.5 0 5 13 13 13 13s13-8 13-13C56 27 49 22 43 29Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`,
+    weekend: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="17" cy="16" r="5" stroke="currentColor" stroke-width="2" opacity="0.55"/><path d="M7 40 20 24l8 9 6-7 23 14" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><path d="M14 52h36" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.5"/></svg>`,
     a1: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 46 32 14l18 32" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M22 46h20" stroke="currentColor" stroke-width="2"/></svg>`,
     a2: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 46 24 20l8 12 8-10 16 24" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>`,
     b1: `<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 46 20 24l10 10 8-14 20 26" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><path d="M6 46h52" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
@@ -59,13 +65,16 @@
   };
 
   const CARD_TINTS = {
-    private: "var(--color-red-tint-08)", kids: "var(--color-accent-gold-tint)",
-    conversation: "var(--color-red-tint-08)", grammar: "var(--color-soft-gray)",
-    couples: "var(--color-accent-gold-tint)", groups: "var(--color-red-tint-08)",
+    trial: "var(--color-accent-gold-tint)", private: "var(--color-red-tint-08)",
+    travelers: "var(--color-accent-gold-tint)", restaurant: "var(--color-red-tint-08)",
+    hotel: "var(--color-soft-gray)", taxi: "var(--color-red-tint-08)",
+    shopping: "var(--color-accent-gold-tint)", friends: "var(--color-accent-gold-tint)",
+    nomad: "var(--color-red-tint-08)", expat: "var(--color-accent-gold-tint)",
+    couples: "var(--color-red-tint-08)", weekend: "var(--color-soft-gray)",
   };
 
-  const COURSE_COLOR = { gold: "var(--color-accent-gold)", blue: "var(--color-accent-blue)", red: "var(--color-red)" };
-  const COURSE_CHIP = { gold: "chip--gold", blue: "", red: "chip--red" };
+  const COURSE_COLOR = { gold: "var(--color-accent-gold)", blue: "var(--color-charcoal)", red: "var(--color-red)" };
+  const COURSE_CHIP = { gold: "chip--gold", blue: "chip--charcoal", red: "chip--red" };
 
   /* =========================================================================
      THEME TOGGLE
@@ -130,18 +139,18 @@
       <div class="navbar__inner">
         <a href="index.html" class="navbar__brand" aria-label="${window.SITE.name} — home">
           ${brandMarkSVG("navbar__mark")}
-          <span class="navbar__wordmark">Albanian with <span>Erisa</span></span>
+          <span class="navbar__wordmark">Speak with <span>Brekila</span></span>
         </a>
         <ul class="navbar__links">
           <li class="navbar__drawer-close-li"><button class="navbar__drawer-close" aria-label="Close menu">${closeIcon}</button></li>
           <li class="navbar__drawer-divider-li"><div class="navbar__drawer-divider"></div></li>
           ${links}
           <li class="navbar__drawer-divider-li"><div class="navbar__drawer-divider"></div></li>
-          <li class="navbar__drawer-cta"><div class="navbar__drawer-cta-inner"><a href="contact.html" class="btn btn-primary">Book a Lesson</a></div></li>
+          <li class="navbar__drawer-cta"><div class="navbar__drawer-cta-inner"><a href="contact.html" class="btn btn-primary">Book Your Free Lesson</a></div></li>
           <li class="navbar__drawer-theme"><div class="navbar__drawer-theme-inner"><button class="theme-toggle" aria-label="Toggle theme"></button></div></li>
         </ul>
         <div class="navbar__actions">
-          <a href="contact.html" class="btn btn-primary btn-sm navbar__desktop-cta">Book a Lesson</a>
+          <a href="contact.html" class="btn btn-primary btn-sm navbar__desktop-cta">Book Your Free Lesson</a>
           <button class="theme-toggle navbar__desktop-theme" aria-label="Toggle theme"></button>
           <button class="navbar__toggle" aria-label="Toggle menu" aria-expanded="false">
             <span></span><span></span><span></span>
@@ -152,7 +161,7 @@
   }
 
   function brandMarkSVG(cls) {
-    return `<img class="${cls}" src="assets/images/logo.png" alt="Albanian with Erisa" width="40" height="40" />`;
+    return `<img class="${cls}" src="assets/images/thelogo.png" alt="Speak with Brekila" width="40" height="40" />`;
   }
 
   function renderFooter() {
@@ -161,7 +170,7 @@
 
     const linkCols = [
       { heading: "Explore", links: window.NAV_LINKS.filter((l) => l.href !== "index.html") },
-      { heading: "Lessons", links: window.LESSONS.slice(0, 4).map((l) => ({ label: l.title, href: "lessons.html" })) },
+      { heading: "Packs", links: window.LESSONS.slice(0, 4).map((l) => ({ label: l.title, href: "lessons.html" })) },
       { heading: "Courses", links: window.COURSES.slice(0, 4).map((c) => ({ label: `${c.level} · ${c.title}`, href: "courses.html" })) },
     ];
 
@@ -170,9 +179,9 @@
         <div>
           <a href="index.html" class="footer__brand">
             ${brandMarkSVG("navbar__mark")}
-            <span class="footer__brand-text">Albanian with Erisa</span>
+            <span class="footer__brand-text">Speak with Brekila</span>
           </a>
-          <p class="footer__about">${window.SITE.tagline} Private lessons, structured courses, and conversation practice — all taught by a native speaker.</p>
+          <p class="footer__about">${window.SITE.tagline} Friendly packs, private lessons, and courses for tourists, expats, and digital nomads — all taught by a local who loves where you're headed.</p>
           <div class="footer__social">
             <a href="${window.SITE.social.instagram}" aria-label="Instagram">${ICONS.instagram}</a>
             <a href="${window.SITE.social.youtube}" aria-label="YouTube">${ICONS.youtube}</a>
@@ -193,7 +202,7 @@
           .join("")}
       </div>
       <div class="footer__bottom">
-        <span>&copy; ${new Date().getFullYear()} Albanian with Erisa. All rights reserved.</span>
+        <span>&copy; ${new Date().getFullYear()} Speak with Brekila. All rights reserved.</span>
         <span>Made with care in Tirana, Albania.</span>
       </div>`;
   }
@@ -239,6 +248,7 @@
     const t = window.TEACHER;
     mount.innerHTML = `
       <div class="teacher__portrait" data-reveal="fade">
+        <img class="teacher__photo" src="assets/images/brekila.jpg" alt="${t.photoAlt}" />
         <div class="teacher__quote-tag">
           <p>"${t.philosophy[0].text}"</p>
         </div>
@@ -253,7 +263,7 @@
             .map((c) => `<div class="teacher__credential"><strong>${c.value}</strong><span>${c.label}</span></div>`)
             .join("")}
         </div>
-        <div style="margin-top:2rem"><a href="about.html" class="btn btn-secondary">Read Erisa's story</a></div>
+        <div style="margin-top:2rem"><a href="about.html" class="btn btn-secondary">Read Brekila's story</a></div>
       </div>`;
   }
 
@@ -277,8 +287,8 @@
             <span>${ICONS.clock}${lesson.duration}</span>
           </div>
           <div class="card__footer">
-            <div class="card__price">$${lesson.price}<span>/session</span></div>
-            <a href="contact.html?lesson=${lesson.id}" class="btn btn-primary btn-sm">Book Lesson</a>
+            <div class="card__price">${lesson.price === 0 ? "Free" : "$" + lesson.price}<span>${lesson.pack ? "/pack" : "/session"}</span></div>
+            <a href="contact.html?lesson=${lesson.id}" class="btn btn-primary btn-sm">${lesson.id === "trial" ? "Book Free Lesson" : "Book Lesson"}</a>
           </div>
         </div>
       </article>`;
@@ -297,7 +307,7 @@
   function courseCardHTML(course) {
     return `
       <article class="card" data-reveal data-level="${course.level}">
-        <div class="card__media" style="background: color-mix(in srgb, ${COURSE_COLOR[course.color]} 14%, white); color:${COURSE_COLOR[course.color]};">
+        <div class="card__media" style="background: color-mix(in srgb, ${COURSE_COLOR[course.color]} 14%, var(--color-white)); color:${COURSE_COLOR[course.color]};">
           <span class="chip ${COURSE_CHIP[course.color]}">${course.level}</span>
           ${CARD_ICONS[course.image] || ""}
         </div>
