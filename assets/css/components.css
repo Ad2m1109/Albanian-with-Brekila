@@ -1078,6 +1078,9 @@
 [data-theme="dark"] .teacher__portrait {
   background: linear-gradient(160deg, #2a2a2a, #1a1a1a);
 }
+[data-theme="dark"] .teacher__quote-tag p {
+  color: #000000;
+}
 
 /* CTA banner */
 [data-theme="dark"] .cta-banner {
