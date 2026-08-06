@@ -584,7 +584,7 @@
 }
 .teacher__portrait {
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1080 / 1098;
   border-radius: var(--radius);
   background: linear-gradient(160deg, var(--color-charcoal), #3a3a3a);
   overflow: hidden;
