@@ -1,7 +1,7 @@
 /**
  * data.js
  * ---------------------------------------------------------------------------
- * Central content store for Speak with Brekila.
+ * Central content store for Speak with Brikela.
  *
  * Every object below is written the way a future REST/GraphQL response
  * would look (flat, JSON-serialisable, no DOM or HTML inside it). When the
@@ -24,10 +24,10 @@
  */
 
 const SITE = {
-  name: "Speak with Brekila",
-  shortName: "Brekila",
+  name: "Speak with Brikela",
+  shortName: "Brikela",
   tagline: "Real Albanian for real life in Albania.",
-  email: "hello@speakwithbrekila.com",
+  email: "hello@speakwithbrikela.com",
   phone: "+355 69 123 4567",
   location: "Tirana, Albania · Online worldwide",
   social: {
@@ -39,13 +39,13 @@ const SITE = {
 };
 
 const TEACHER = {
-  name: "Brekila",
+  name: "Brikela",
   role: "Founder & Lead Instructor",
-  photoAlt: "Portrait of Brekila, your friendly Albanian guide",
+  photoAlt: "Portrait of Brikela, your friendly Albanian guide",
   shortBio:
-    "A local from Tirana who loves two things: Albania, and watching nervous students become confident speakers. Brekila teaches the Albanian you'll actually use — at cafés, markets, and with friends.",
+    "A local from Tirana who loves two things: Albania, and watching nervous students become confident speakers. Brikela teaches the Albanian you'll actually use — at cafés, markets, and with friends.",
   bio: [
-    "Brekila grew up in Tirana, in a house where guests were family and the coffee was always fresh. She watched her mother make strangers feel at home with nothing but warmth — and learned early that language isn't rules, it's connection.",
+    "Brikela grew up in Tirana, in a house where guests were family and the coffee was always fresh. She watched her mother make strangers feel at home with nothing but warmth — and learned early that language isn't rules, it's connection.",
     "Years of teaching diplomats, students, and visitors taught her something surprising: the nervous students are always her favourites. The ones who say 'I'm terrible at languages' — and then order their first meal in Albanian three weeks later.",
     "Now her lessons happen online, wherever her students are, but the goal hasn't changed: helping you feel at home in Albania, one real conversation at a time.",
   ],
@@ -122,7 +122,7 @@ const LESSONS = [
     category: "Free",
     image: "trial",
     description:
-      "A relaxed 30-minute chat to meet Brekila and feel what speaking Albanian really feels like. No card, no pressure, no plan required.",
+      "A relaxed 30-minute chat to meet Brikela and feel what speaking Albanian really feels like. No card, no pressure, no plan required.",
     features: [
       "Meet your local guide",
       "Find out where to start",
@@ -408,7 +408,7 @@ const TESTIMONIALS = [
     name: "Kevin O'Malley",
     role: "Expat, Ireland — in Durrës",
     quote:
-      "Month one would have been chaos without Brekila. Now I talk with my landlord, buy at the market, and joke with my neighbours in their language.",
+      "Month one would have been chaos without Brikela. Now I talk with my landlord, buy at the market, and joke with my neighbours in their language.",
     rating: 5,
   },
   {
@@ -429,7 +429,7 @@ const TESTIMONIALS = [
     name: "Jonas Reiter",
     role: "Erasmus student, Austria",
     quote:
-      "Six weeks with Brekila and I was the one organising group hang-outs. Studying in Tirana got twice as fun the moment I could actually talk to people.",
+      "Six weeks with Brikela and I was the one organising group hang-outs. Studying in Tirana got twice as fun the moment I could actually talk to people.",
     rating: 5,
   },
 ];

@@ -139,7 +139,7 @@
       <div class="navbar__inner">
         <a href="index.html" class="navbar__brand" aria-label="${window.SITE.name} — home">
           ${brandMarkSVG("navbar__mark")}
-          <span class="navbar__wordmark">Speak with <span>Brekila</span></span>
+          <span class="navbar__wordmark">Speak with <span>Brikela</span></span>
         </a>
         <ul class="navbar__links">
           <li class="navbar__drawer-close-li"><button class="navbar__drawer-close" aria-label="Close menu">${closeIcon}</button></li>
@@ -161,7 +161,7 @@
   }
 
   function brandMarkSVG(cls) {
-    return `<img class="${cls}" src="assets/images/thelogo.png" alt="Speak with Brekila" width="40" height="40" />`;
+    return `<img class="${cls}" src="assets/images/thelogo.png" alt="Speak with Brikela" width="40" height="40" />`;
   }
 
   function renderFooter() {
@@ -179,7 +179,7 @@
         <div>
           <a href="index.html" class="footer__brand">
             ${brandMarkSVG("navbar__mark")}
-            <span class="footer__brand-text">Speak with Brekila</span>
+            <span class="footer__brand-text">Speak with Brikela</span>
           </a>
           <p class="footer__about">${window.SITE.tagline} Friendly packs, private lessons, and courses for tourists, expats, and digital nomads — all taught by a local who loves where you're headed.</p>
           <div class="footer__social">
@@ -202,7 +202,7 @@
           .join("")}
       </div>
       <div class="footer__bottom">
-        <span>&copy; ${new Date().getFullYear()} Speak with Brekila. All rights reserved.</span>
+        <span>&copy; ${new Date().getFullYear()} Speak with Brikela. All rights reserved.</span>
         <span>Made with care in Tirana, Albania.</span>
       </div>`;
   }
@@ -248,7 +248,7 @@
     const t = window.TEACHER;
     mount.innerHTML = `
       <div class="teacher__portrait" data-reveal="fade">
-        <img class="teacher__photo" src="assets/images/brekila.jpg" alt="${t.photoAlt}" />
+        <img class="teacher__photo" src="assets/images/brikela.jpg" alt="${t.photoAlt}" />
         <div class="teacher__quote-tag">
           <p>"${t.philosophy[0].text}"</p>
         </div>
@@ -263,7 +263,7 @@
             .map((c) => `<div class="teacher__credential"><strong>${c.value}</strong><span>${c.label}</span></div>`)
             .join("")}
         </div>
-        <div style="margin-top:2rem"><a href="about.html" class="btn btn-secondary">Read Brekila's story</a></div>
+        <div style="margin-top:2rem"><a href="about.html" class="btn btn-secondary">Read Brikela's story</a></div>
       </div>`;
   }
 
